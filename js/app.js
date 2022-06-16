@@ -8,25 +8,26 @@ const Cart = function(items) {
 
 Cart.prototype.addItem = function(product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items, 
-  let newCart = new CartItem (product, quantity); 
-    newCart.push(this.items); 
-  //push items array this.items=items
-  //console.log(newCart); 
+  let newItem = new CartItem (product, quantity); 
+    //newItem.push(this.items); 
+  this.items.push(newItem); 
+   console.log(this.items); 
+  //console.log(product, quantity); 
 };
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
   if (localStorage.getItem("products") === null){
-    let stringify = JSON.stringify(generateCatalog);
+    let stringify = JSON.stringify(this.items);
     localStorage.setItem("products", stringify);
     
   } else { 
     let retrievedProducts = localStorage.getItem("products");
     let parsedData = JSON.parse(retrievedProducts);
-    for (let i = 0; i < generateCatalog.length; i++){
-    generateCatalog[i].votes = generateCatalog[i].votes + parsedData[i].votes
-    generateCatalog[i].views = generateCatalog[i].views + parsedData[i].views
-    let stringify = JSON.stringify(generateCatalog);
+    for (let i = 0; i < this.items.length; i++){
+    this.items[i].votes = this.items[i].votes + parsedData[i].votes
+    this.items[i].views = this.items[i].views + parsedData[i].views
+    let stringify = JSON.stringify(this.items);
     localStorage.setItem("products", stringify);
     }
   }
@@ -35,8 +36,8 @@ Cart.prototype.saveToLocalStorage = function() {
 Cart.prototype.removeItem = function(item) {
   // TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
-  let newCart = new CartItem (product, quantity); 
-  newCart.splice(this.items); 
+  let index = this.items.indexOf(item); 
+  this.items.splice(index, 1); //2nd parameter removes one item only
 };
 
 const CartItem = function(product, quantity) {
