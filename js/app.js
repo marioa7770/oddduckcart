@@ -7,22 +7,43 @@ const Cart = function(items) {
 };
 
 Cart.prototype.addItem = function(product, quantity) {
-  // TODO: Fill in this instance method to create a new CartItem and add it to this.items
+  // TODO: Fill in this instance method to create a new CartItem and add it to this.items, 
+  let newCart = new CartItem (product, quantity); 
+    newCart.push(this.items); 
+  //push items array this.items=items
+  //console.log(newCart); 
 };
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  if (localStorage.getItem("products") === null){
+    let stringify = JSON.stringify(generateCatalog);
+    localStorage.setItem("products", stringify);
+    
+  } else { 
+    let retrievedProducts = localStorage.getItem("products");
+    let parsedData = JSON.parse(retrievedProducts);
+    for (let i = 0; i < generateCatalog.length; i++){
+    generateCatalog[i].votes = generateCatalog[i].votes + parsedData[i].votes
+    generateCatalog[i].views = generateCatalog[i].views + parsedData[i].views
+    let stringify = JSON.stringify(generateCatalog);
+    localStorage.setItem("products", stringify);
+    }
+  }
 };
 
 Cart.prototype.removeItem = function(item) {
   // TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
+  let newCart = new CartItem (product, quantity); 
+  newCart.splice(this.items); 
 };
 
 const CartItem = function(product, quantity) {
   this.product = product;
   this.quantity = quantity;
 };
+
 
 // Product contructor.
 const Product = function(filePath, name) {
