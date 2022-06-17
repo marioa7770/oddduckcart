@@ -51,10 +51,17 @@ function addSelectedItemToCart() {
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
- let itemCount = document.getElementById('itemCount');
- itemCount.innerText = cart.items.length; 
- //itemCount.innerText = cart.quantity.length; 
-
+ document.getElementById('itemCount').textContent = `${cart.items.length}`; 
+ for (let i = 0; i < cart.items.length; i++){
+  let items= cart.items[i]
+  console.log (items)
+ }
+//  itemCount.innerText = cart.items.length; 
+//  let totalItems = 0; 
+//  for (let i = 0; i < items.length; i++){
+//   totalItems +=(cart[i].items.length); 
+//  }
+// return totalItems;
  //how do we record with quantity 
 }  
 
