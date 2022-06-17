@@ -32,7 +32,7 @@ function handleSubmit(event) {
   // Do all the things ...
   addSelectedItemToCart();
   cart.saveToLocalStorage();
-  updateCounter('add');
+  updateCounter();
   updateCartPreview();
 
 }
@@ -62,12 +62,22 @@ function updateCounter() {
 //   totalItems +=(cart[i].items.length); 
 //  }
 // return totalItems;
- //how do we record with quantity 
+ 
 }  
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
-
+     let product = null; 
+     let cartContents = document.getElementById ('cart-contents'); 
+     let item = document.getElementById ('items').value; 
+     for (let i = 0; i < Product.allProducts.length; i++){
+      if (Product.allProducts[i].name == item){
+        product = Product.allProducts[i]; 
+      }
+     }
+    let productImg = document.createElement('img'); 
+    productImg.src = product.filePath; 
+    cartContents.appendChild(productImg); 
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
 }
