@@ -19,32 +19,37 @@ function renderCart() {
 }
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
-function clearCart() {}
+function clearCart() {
+
+
+}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
-  let tableBody = document.getElementsByTagName ('tbody')[0]; 
-  let tableRow = document.createElement ('tr'); 
-
   // TODO: Find the table body
-for (let i = 0; i < loadArray.length; i++) {
+  let tableBody = document.querySelector ('tbody'); 
+  //let tableBody = document.getElementsByTagName ('tbody')[0]; //targeting the first instead of the list
+  
+  // TODO: Iterate over the items in the cart
+  for (let i = 0; i < cart.items.length; i++) {
+    // TODO: Create a TR
+  let tableRow = document.createElement ('tr'); 
+  // TODO: Create a TD for the delete link, quantity,  and the item
   let tableDeleteLink = document.createElement('td'); 
   let tableQuantity = document.createElement ('td'); 
   let tableItem = document.createElement ('td'); 
   
-  tableItem.innerText = ('Product'); 
-  tableQuantity.innerText = ('Quantity'); 
-  tableDeleteLink.innerText = ('X'); 
-
+  tableItem.innerText = cart.items[i].product; 
+  tableQuantity.innerText = cart.items[i].quantity; 
+  tableDeleteLink.innerText = 'X'; 
+  tableDeleteLink.id = i; 
+  
+  // TODO: Add the TR to the TBODY and each of the TD's to the TR
   tableRow.appendChild (tableItem); 
   tableRow.appendChild (tableQuantity); 
   tableRow.appendChild (tableDeleteLink); 
+  tableBody.appendChild(tableRow); 
 }
-tableBody.appendChild(tableRow); 
-  // TODO: Iterate over the items in the cart
-  // TODO: Create a TR
-  // TODO: Create a TD for the delete link, quantity,  and the item
-  // TODO: Add the TR to the TBODY and each of the TD's to the TR
 
 }
 
