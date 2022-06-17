@@ -1,5 +1,22 @@
 /* TODO: Make it awesome */
 
-h1 {
-  color: black;
+header {
+  background-color: lightgray;
+  height: 100px;
+  margin-bottom: 30px;
+}
+
+nav {
+  width: 960px;
+  margin: auto;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  border: 20px;
+}
+
+nav ul li {
+  margin-top: 50px;
 }

@@ -13,7 +13,7 @@ function populateForm() {
   const selectElement = document.getElementById('items');
   for (let i in Product.allProducts) { 
     let opt = document.createElement('option') //catalog is the name of the form 
-    console.log(Product.allProducts[i].name); 
+    //console.log(Product.allProducts[i].name); 
     opt.items = Product.allProducts[i].name; //Product is the name of the new items in the function
     opt.innerHTML = Product.allProducts[i].name;
     selectElement.appendChild(opt); 
@@ -32,7 +32,7 @@ function handleSubmit(event) {
   // Do all the things ...
   addSelectedItemToCart();
   cart.saveToLocalStorage();
-  updateCounter();
+  updateCounter('add');
   updateCartPreview();
 
 }
@@ -51,11 +51,16 @@ function addSelectedItemToCart() {
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
- //let count = 
-}
+ let itemCount = document.getElementById('itemCount');
+ itemCount.innerText = cart.items.length; 
+ //itemCount.innerText = cart.quantity.length; 
+
+ //how do we record with quantity 
+}  
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
+
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
 }
