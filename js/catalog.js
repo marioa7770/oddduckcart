@@ -47,7 +47,7 @@ function addSelectedItemToCart() {
 function updateCounter() {
   let emptyCart = []; 
   let sum = 0; 
-  document.getElementById("itemCount").textContent = `${cart.items.length}`;
+  //document.getElementById("itemCount")
   for (let i = 0; i < cart.items.length; i++) {
     let items = cart.items[i];
     sum += emptyCart; 
@@ -69,7 +69,7 @@ function updateCartPreview() {
   let productImg = document.createElement("img");
   productImg.src = product.filePath;
   cartContents.appendChild(productImg);
-  console.log(cartContents);
+  //console.log(cartContents);
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
 }
