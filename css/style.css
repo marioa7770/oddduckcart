@@ -1,22 +1,66 @@
 /* TODO: Make it awesome */
 
-header {
-  background-color: lightblue;
-  height: 100px;
-  margin-bottom: 30px;
+html {
+  font-size: 25pt;
+  color: rgb(16, 15, 15);
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+ 
+}
+
+h1{
+  background-color: rgb(111, 111, 223);
+  text-align: center;
+  height: 30px; 
+  padding: 10px; 
+}
+
+h1:last-child{
+  background-color: lightseagreen;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 nav {
-  width: 960px;
-  margin: auto;
+ 
+  background: url(/assets/sweep.png) no-repeat;
+  height: 350px;
+  font-size: .75em; 
 }
 
+
 nav ul {
+  background-color: lightblue;
   display: flex;
   justify-content: space-around;
-  border: 20px;
+  align-items: flex-end;
+  margin-left:475px; 
+  padding-bottom: 120px;
+  padding-top: 127px;
+
+  
 }
 
 nav ul li {
   margin-top: 50px;
+}
+
+
+.copy {
+  background-color: rgb(213, 213, 240);
+  font-size: .50em; 
+  margin-left: 25px; 
+  margin-right: 25px; 
+}
+
+
+input:hover{
+  background-color: #008080;
+  transition-delay: 350ms;
+}
+
+
+footer{
+  font-size: .5em; 
+  text-align: center;
 }
