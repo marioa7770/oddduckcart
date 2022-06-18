@@ -19,7 +19,10 @@ function renderCart() {
 }
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
-function clearCart() {}
+function clearCart() {
+  let tableBody = document.getElementsByTagName("tbody")[0];
+  tableBody.innerHTML = null; 
+}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
@@ -56,7 +59,7 @@ function removeItemFromCart(event) {
   // TODO: Save the cart back to local storage
   cart.saveToLocalStorage();
   // TODO: Re-draw the cart table
-  showCart();
+  renderCart();
 }
 
 // This will initialize the page and draw the cart on screen
